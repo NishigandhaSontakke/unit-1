@@ -105,3 +105,101 @@ function addEvents(){  // defining function addEvents
 $(document).ready(function(){  
     initialize();
 });
+
+function jsAjax(){
+    // Step 1: Create the request 
+    var ajaxRequest = new XMLHttpRequest();
+
+    //Step 2: Create an event handler to send received data to a callback function
+    ajaxRequest.onreadystatechange = function(){
+        if (ajaxRequest.readyState == 4){
+            callback(ajaxRequest.response);
+        };
+    };
+
+    //Step 3: Open the server connection
+    ajaxRequest.open('GET', 'data/megacity.geojson', true);
+
+    //Step 4: Set the response data type
+    ajaxRequest.responseType = "json";
+
+    //Step 5: Send the request
+    ajaxRequest.send();
+};
+
+
+//define callback function
+function callback(response){
+
+    var mydata = response;
+
+    //pass data to another function
+    nextFunction(mydata);
+};
+
+window.onload = jsAjax();
+//define AJAX function
+function jQueryAjax(){
+	var mydata;
+    //basic jQuery ajax method
+    $.ajax("data/megacity.geojson", {
+        dataType: "json",
+        success: function(response){
+            mydata = response;
+        }
+	});
+	console.log(mydata);
+};
+
+
+
+function nextFunction(data){
+
+    console.log(data); //contains response data held by mydata in callback
+};
+
+$(document).ready(jQueryAjax);
+//a simple counting function
+function countToThree(){
+    var count = 0;
+    while (count < 3){
+        count++;
+    };
+    return count;
+};
+
+var mydata = countToThree();
+
+console.log(mydata); //mydata is 3
+
+function jQueryAjax(){
+    var mydata = $.ajax("data/megacity.geojson", {
+        dataType: "json"
+    });
+    return mydata;
+};
+
+var mydata = jQueryAjax();
+
+console.log(mydata); //the jQuery XMLHttpRequest object
+
+function debugCallback(response){
+	$(mydiv).append(JSON.stringify(response));
+};
+
+function debugAjax(){
+
+	var mydata=$.ajax("data/megacity.geojson", {
+		dataType: "json",
+		success: function(response){
+			
+			debugCallback(response);
+		}
+	});
+
+	$(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
+};
+
+//$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+
+$(document).ready(debugAjax);
