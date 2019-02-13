@@ -118,12 +118,12 @@ function jsAjax(){
         success: function(response){
             mydata = response;
 
-            //check the data
+           
             console.log(mydata); // This the data
         }
     });
 
-    //check the data
+   
     console.log(mydata); // Data cannot be accessed outside of the callback function
 };
 
