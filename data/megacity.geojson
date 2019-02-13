@@ -1,7 +1,6 @@
 {
 "type": "FeatureCollection",
 "name": "megacity",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "City": "Tokyo", "Pop_1985": 30.3, "Pop_1990": 32.53, "Pop_1995": 33.59, "Pop_2000": 34.45, "Pop_2005": 35.62, "Pop_2010": 36.83, "Pop_2015": 38.0, "latitude": 35.682839, "longitude": 139.759455, "name": "Tokyo", "desc": "Tokyo, Chiyoda, Tokyo, JP", "color": null, "source": "MapQuest Open", "precision": "city\/town" }, "geometry": { "type": "Point", "coordinates": [ 139.759455, 35.682839 ] } },
 { "type": "Feature", "properties": { "City": "Delhi", "Pop_1985": 7.33, "Pop_1990": 9.73, "Pop_1995": 12.41, "Pop_2000": 15.73, "Pop_2005": 18.67, "Pop_2010": 21.94, "Pop_2015": 25.7, "latitude": 28.651718, "longitude": 77.221939, "name": "Delhi", "desc": "Delhi, Central Delhi, Delhi, IN", "color": null, "source": "MapQuest Open", "precision": "city\/town" }, "geometry": { "type": "Point", "coordinates": [ 77.221939, 28.651718 ] } },

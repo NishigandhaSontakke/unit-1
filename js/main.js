@@ -183,23 +183,29 @@ var mydata = jQueryAjax();
 
 console.log(mydata); //the jQuery XMLHttpRequest object
 
+
+//Debug.js 
+
+//defining debugCallback function
+
 function debugCallback(response){
-	$(mydiv).append(JSON.stringify(response));
+	$(mydiv).append('<br><b>GeoJSON data:</b><br>'+ JSON.stringify(response));// using stringify to convert JavaScript object to string, since 
+																			//when sending data to a web server, the data has to be a string
 };
-
+//defining AJAX function
 function debugAjax(){
-
-	var mydata=$.ajax("data/megacity.geojson", {
-		dataType: "json",
-		success: function(response){
+	//ajax method
+	var mydata=$.ajax("data/megacity.geojson", {  // method parameters geojason URL and setting objects
+		dataType: "json", // setting object
+		success: function(response){ // setting object
 			
-			debugCallback(response);
+			debugCallback(response); // sending response(megacity.geojson) as an argument to degubCallback function
 		}
 	});
 
-	$(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(mydata));
+	//$(mydiv).append('<br>GeoJSON data:<br>' + JSON.stringify(response));
 };
 
 //$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
 
-$(document).ready(debugAjax);
+$(document).ready(debugAjax); // Adding function call
